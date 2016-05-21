@@ -22,6 +22,7 @@ int main() {
 	nb.vidas();
 	
 	Bala ba(ne);
+	
 	bool game=false;
 	while(!game){
 		ne.mover();

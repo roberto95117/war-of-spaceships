@@ -1,6 +1,5 @@
 class Bala{
 	int x,y;
-	
 public:
 	Bala(class naveEnemiga &n);
 	int getX(){return x;}

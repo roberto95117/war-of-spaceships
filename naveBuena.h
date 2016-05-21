@@ -11,42 +11,49 @@ public:
 
 void naveBuena::dibujar(){
 	system("COLOR A");
+	 //primera linea
 	 gotoxy(x,y-6); printf("/");
-	 gotoxy(x+1,y-6); printf("\\");
+	 gotoxy(x+1,y-6); printf("1");
+	 
+	 //2da linea
 	 gotoxy(x,y-5); printf("X");
-	 gotoxy(x+1,y-5); printf("X");
+	 gotoxy(x+1,y-5); printf("2");
 	 gotoxy(x+2,y-5); printf("|"); 
 	 gotoxy(x-1,y-5); printf("|");
  	 
+ 	 //3ra linea
 	 gotoxy(x,y-4); printf("X");
-	 gotoxy(x+1,y-4); printf("X");
+	 gotoxy(x+1,y-4); printf("3");
 	 gotoxy(x+2,y-4); printf("|"); 
 	 gotoxy(x-1,y-4); printf("|");
  	 
+ 	 //4ta linea
 	 gotoxy(x,y-3); printf("X");
-	 gotoxy(x+1,y-3); printf("X");
+	 gotoxy(x+1,y-3); printf("4");
 	 gotoxy(x+2,y-3); printf("\\"); 
 	 gotoxy(x-1,y-3); printf("/");
  	 
-	 gotoxy(x,y-2); printf("X");
+ 	 //5ta linea
+	 gotoxy(x,y-2); printf("5");
 	 gotoxy(x+1,y-2); printf("X");
 	 gotoxy(x+3,y-2); printf("\\"); 
 	 gotoxy(x+2,y-2); printf("X"); 
 	 gotoxy(x-2,y-2); printf("/");
 	 gotoxy(x-1,y-2); printf("X");
  	 
-	 
+	 //6ta linea
 	 gotoxy(x,y-1); printf("X");
-	 gotoxy(x+1,y-1); printf("X");
+	 gotoxy(x+1,y-1); printf("6");
 	 gotoxy(x+4,y-1); printf("|");
 	 gotoxy(x+3,y-1); printf("\\"); 
 	 gotoxy(x+2,y-1); printf("X"); 
 	 gotoxy(x-3,y-1); printf("|");
 	 gotoxy(x-2,y-1); printf("/");
 	 gotoxy(x-1,y-1); printf("X");
- 	 
+
+	//7ma linea
 	 gotoxy(x,y); printf("|");
-	 gotoxy(x+1,y); printf("|");
+	 gotoxy(x+1,y); printf("7");
 	 gotoxy(x+4,y); printf("|");
 	 gotoxy(x+3,y); printf("\\"); 
 	 gotoxy(x-3,y); printf("|");
@@ -121,37 +128,86 @@ void naveBuena::vidas(){
 
 void naveBuena::muerte(class Bala &b){
 	if(v!=0){
-		if( b.getY()+6>=y && b.getX()<=x+4  && b.getX()>=x-3) {
+/*	 gotoxy(x,y-2); printf("5");
+	 gotoxy(x+1,y-2); printf("X");
+	 gotoxy(x+3,y-2); printf("\\"); 
+	 gotoxy(x+2,y-2); printf("X"); 
+	 gotoxy(x-2,y-2); printf("/");
+	 gotoxy(x-1,y-2); printf("X");
+*/		
+		if(b.getY()>=y-2 &&  b.getX()>=x-3 && b.getX()<=x+5) {
 			borrar();
-			gotoxy(x,y-6);  printf("  **  ");
-			gotoxy(x,y-5);printf(" **** ");
-			gotoxy(x,y-4);printf("  **  ");
-			Sleep(25);
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
+			gotoxy(b.getX(),b.getY()-1);printf("  *  ");
+			gotoxy(b.getX(),b.getY()-2);printf(" *** ");
+			gotoxy(b.getX(),b.getY()-3);printf("  *  ");
+			Sleep(3);
 			borrar();
-			gotoxy(x,y-6);  printf("**  **");
-			gotoxy(x,y-5);printf("*    *");
-			gotoxy(x,y-4);printf("**  **");
-			Sleep(25);
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");			
+			gotoxy(b.getX(),b.getY()-1);printf(" * * ");
+			gotoxy(b.getX(),b.getY()-2);printf("*   *");
+			gotoxy(b.getX(),b.getY()-3);printf(" * * ");
+			Sleep(3);
 			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
+			dibujar();
+		}
+		else if (b.getY()>=y-3 &&  b.getX()>=x-1 && b.getX()<x+4){
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
+			gotoxy(b.getX(),b.getY()-1);printf("  *  ");
+			gotoxy(b.getX(),b.getY()-2);printf(" *** ");
+			gotoxy(b.getX(),b.getY()-3);printf("  *  ");
+			Sleep(3);
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");			
+			gotoxy(b.getX(),b.getY()-1);printf(" * * ");
+			gotoxy(b.getX(),b.getY()-2);printf("*   *");
+			gotoxy(b.getX(),b.getY()-3);printf(" * * ");
+			Sleep(3);
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
+			dibujar();
+		}
+		else if (b.getY()>=y-6 &&  b.getX()>=x-1 && b.getX()<=x+2) {
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
+			gotoxy(b.getX(),b.getY()-1);printf("  *  ");
+			gotoxy(b.getX(),b.getY()-2);printf(" *** ");
+			gotoxy(b.getX(),b.getY()-3);printf("  *  ");
+			Sleep(3);
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");			
+			gotoxy(b.getX(),b.getY()-1);printf(" * * ");
+			gotoxy(b.getX(),b.getY()-2);printf("*   *");
+			gotoxy(b.getX(),b.getY()-3);printf(" * * ");
+			Sleep(3);
+			borrar();
+			gotoxy(b.getX(),b.getY()-1);printf("     ");
+			gotoxy(b.getX(),b.getY()-2);printf("     ");
+			gotoxy(b.getX(),b.getY()-3);printf("     ");
 			dibujar();
 		}
 		else
-		{
-			if(y<=b.getY()+4 && b.getX()<=x+3  && b.getX()>=x-2 ){
-				borrar();
-				gotoxy(x,y);  printf("  **  ");
-				gotoxy(x,y+1);printf(" ****  ");
-				gotoxy(x,y+2);printf("  **   ");
-				Sleep(200);
-				borrar();
-				gotoxy(x,y);  printf(" * ** *  ");
-				gotoxy(x,y+1);printf("  ****  ");
-				gotoxy(x,y+2);printf(" * ** *  ");
-				Sleep(200);
-				borrar();
-				dibujar();
-			}	
-		}			
+		{	
+				
+		}		
 	}
 	else
 	{
