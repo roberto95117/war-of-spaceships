@@ -7,34 +7,37 @@ public:
 	void mover();
 	void vidas();
 	void muerte(class Bala &b);
+	int getV(){
+		return v;
+	}
 };
 
 void naveBuena::dibujar(){
 	system("COLOR A");
 	 //primera linea
 	 gotoxy(x,y-6); printf("/");
-	 gotoxy(x+1,y-6); printf("1");
+	 gotoxy(x+1,y-6); printf("\\");
 	 
 	 //2da linea
 	 gotoxy(x,y-5); printf("X");
-	 gotoxy(x+1,y-5); printf("2");
+	 gotoxy(x+1,y-5); printf("X");
 	 gotoxy(x+2,y-5); printf("|"); 
 	 gotoxy(x-1,y-5); printf("|");
  	 
  	 //3ra linea
 	 gotoxy(x,y-4); printf("X");
-	 gotoxy(x+1,y-4); printf("3");
+	 gotoxy(x+1,y-4); printf("X");
 	 gotoxy(x+2,y-4); printf("|"); 
 	 gotoxy(x-1,y-4); printf("|");
  	 
  	 //4ta linea
 	 gotoxy(x,y-3); printf("X");
-	 gotoxy(x+1,y-3); printf("4");
+	 gotoxy(x+1,y-3); printf("X");
 	 gotoxy(x+2,y-3); printf("\\"); 
 	 gotoxy(x-1,y-3); printf("/");
  	 
  	 //5ta linea
-	 gotoxy(x,y-2); printf("5");
+	 gotoxy(x,y-2); printf("X");
 	 gotoxy(x+1,y-2); printf("X");
 	 gotoxy(x+3,y-2); printf("\\"); 
 	 gotoxy(x+2,y-2); printf("X"); 
@@ -43,7 +46,7 @@ void naveBuena::dibujar(){
  	 
 	 //6ta linea
 	 gotoxy(x,y-1); printf("X");
-	 gotoxy(x+1,y-1); printf("6");
+	 gotoxy(x+1,y-1); printf("X");
 	 gotoxy(x+4,y-1); printf("|");
 	 gotoxy(x+3,y-1); printf("\\"); 
 	 gotoxy(x+2,y-1); printf("X"); 
@@ -53,7 +56,7 @@ void naveBuena::dibujar(){
 
 	//7ma linea
 	 gotoxy(x,y); printf("|");
-	 gotoxy(x+1,y); printf("7");
+	 gotoxy(x+1,y); printf("|");
 	 gotoxy(x+4,y); printf("|");
 	 gotoxy(x+3,y); printf("\\"); 
 	 gotoxy(x-3,y); printf("|");
@@ -61,47 +64,47 @@ void naveBuena::dibujar(){
 	 
 }
 void naveBuena::borrar(){
-	 gotoxy(x,y); printf("       ");
- 	 gotoxy(x,y-6); printf("      ");
-	 gotoxy(x+1,y-6); printf("      ");
-	 gotoxy(x,y-5);printf("        ");
-	 gotoxy(x+1,y-5); printf("       ");
-	 gotoxy(x+2,y-5); printf("        "); 
-	 gotoxy(x-1,y-5); printf("        ");
+	 gotoxy(x,y); printf("                                     ");
+ 	 gotoxy(x,y-6); printf("                              ");
+	 gotoxy(x+1,y-6); printf("                                            ");
+	 gotoxy(x,y-5);printf("                                               ");
+	 gotoxy(x+1,y-5); printf("                                              ");
+	 gotoxy(x+2,y-5); printf("                                               "); 
+	 gotoxy(x-1,y-5); printf("                                             ");
  	 
-	 gotoxy(x,y-4); printf("       ");
-	 gotoxy(x+1,y-4); printf("       ");
-	 gotoxy(x+2,y-4); printf("       "); 
-	 gotoxy(x-1,y-4); printf("          ");
+	 gotoxy(x,y-4); printf("                                     ");
+	 gotoxy(x+1,y-4); printf("                                     ");
+	 gotoxy(x+2,y-4); printf("                                     "); 
+	 gotoxy(x-1,y-4); printf("                                        ");
  	 
-	 gotoxy(x,y-3); printf(" ");
-	 gotoxy(x+1,y-3);printf(" ");
-	 gotoxy(x+2,y-3); printf(" "); 
-	 gotoxy(x-1,y-3); printf(" ");
+	 gotoxy(x,y-3); printf("                                   ");
+	 gotoxy(x+1,y-3);printf("                                   ");
+	 gotoxy(x+2,y-3); printf("                                   "); 
+	 gotoxy(x-1,y-3); printf("                                   ");
  	 
-	 gotoxy(x,y-2); printf(" ");
-	 gotoxy(x+1,y-2); printf(" ");
-	 gotoxy(x+3,y-2); printf(" "); 
-	 gotoxy(x+2,y-2); printf(" "); 
-	 gotoxy(x-2,y-2); printf(" ");
-	 gotoxy(x-1,y-2); printf(" ");
+	 gotoxy(x,y-2); printf("                                   ");
+	 gotoxy(x+1,y-2); printf("                                   ");
+	 gotoxy(x+3,y-2); printf("                                   "); 
+	 gotoxy(x+2,y-2); printf("                                   "); 
+	 gotoxy(x-2,y-2); printf("                                   ");
+	 gotoxy(x-1,y-2); printf("                                  ");
  	 
 	 
-	 gotoxy(x,y-1); printf(" ");
-	 gotoxy(x+1,y-1); printf(" ");
-	 gotoxy(x+4,y-1); printf(" ");
-	 gotoxy(x+3,y-1); printf(" "); 
-	 gotoxy(x+2,y-1); printf(" "); 
-	 gotoxy(x-3,y-1); printf(" ");
-	 gotoxy(x-2,y-1); printf(" ");
-	 gotoxy(x-1,y-1); printf(" ");
+	 gotoxy(x,y-1); printf("                                  ");
+	 gotoxy(x+1,y-1); printf("                                  ");
+	 gotoxy(x+4,y-1); printf("                                  ");
+	 gotoxy(x+3,y-1); printf("                                  "); 
+	 gotoxy(x+2,y-1); printf("                                  "); 
+	 gotoxy(x-3,y-1); printf("                                  ");
+	 gotoxy(x-2,y-1); printf("                                  ");
+	 gotoxy(x-1,y-1); printf("                                  ");
  	 
-	 gotoxy(x,y); printf(" ");
-	 gotoxy(x+1,y); printf(" ");
-	 gotoxy(x+4,y); printf(" ");
-	 gotoxy(x+3,y); printf(" "); 
-	 gotoxy(x-3,y); printf(" ");
-	 gotoxy(x-2,y); printf(" ");	 
+	 gotoxy(x,y); printf("                                   ");
+	 gotoxy(x+1,y); printf("                                  ");
+	 gotoxy(x+4,y); printf("                                  ");
+	 gotoxy(x+3,y); printf("                                  "); 
+	 gotoxy(x-3,y); printf("                                  ");
+	 gotoxy(x-2,y); printf("                                 ");	 
 }
 void naveBuena::mover(){
 		if(kbhit()){
@@ -120,22 +123,17 @@ void naveBuena::mover(){
 
 void naveBuena::vidas(){
 	gotoxy(2,2);printf("Vidas :");
-	gotoxy(20,2);printf("             ");
+	gotoxy(10,2);printf("                                               ");
 	for(int i=0;i<v;i++){
 		gotoxy(10+i,2);printf("%c",3);
 	}
 }
 
 void naveBuena::muerte(class Bala &b){
-	if(v!=0){
-/*	 gotoxy(x,y-2); printf("5");
-	 gotoxy(x+1,y-2); printf("X");
-	 gotoxy(x+3,y-2); printf("\\"); 
-	 gotoxy(x+2,y-2); printf("X"); 
-	 gotoxy(x-2,y-2); printf("/");
-	 gotoxy(x-1,y-2); printf("X");
-*/		
+	if(v!=0 && b.getY()<=47 ){
 		if(b.getY()>=y-2 &&  b.getX()>=x-3 && b.getX()<=x+5) {
+			v--;
+			b.setY(47);
 			borrar();
 			gotoxy(b.getX(),b.getY()-1);printf("     ");
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
@@ -157,8 +155,12 @@ void naveBuena::muerte(class Bala &b){
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
 			gotoxy(b.getX(),b.getY()-3);printf("     ");
 			dibujar();
+			vidas();
+			
 		}
 		else if (b.getY()>=y-3 &&  b.getX()>=x-1 && b.getX()<x+4){
+			v--;
+			b.setY(47);
 			borrar();
 			gotoxy(b.getX(),b.getY()-1);printf("     ");
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
@@ -180,8 +182,12 @@ void naveBuena::muerte(class Bala &b){
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
 			gotoxy(b.getX(),b.getY()-3);printf("     ");
 			dibujar();
+			vidas();
 		}
 		else if (b.getY()>=y-6 &&  b.getX()>=x-1 && b.getX()<=x+2) {
+			v--;
+			b.setY(47);
+			gotoxy(b.getX()-1,b.getY()+1);printf(" ");
 			borrar();
 			gotoxy(b.getX(),b.getY()-1);printf("     ");
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
@@ -203,15 +209,13 @@ void naveBuena::muerte(class Bala &b){
 			gotoxy(b.getX(),b.getY()-2);printf("     ");
 			gotoxy(b.getX(),b.getY()-3);printf("     ");
 			dibujar();
+			vidas();
 		}
-		else
-		{	
-				
-		}		
-	}
-	else
-	{
-		v=3;
+
+		else{
+		}
+	}		
+	else{
 	}
 }
 naveBuena::naveBuena (int x1,int y1,int v1){
