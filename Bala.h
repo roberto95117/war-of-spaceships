@@ -17,7 +17,7 @@ void Bala::mover(class naveEnemiga &n){
 	y++;
 	if(y>47){
 		x=n.getX()+3;
-		y=5;
+		y=7;
 	}
 	dibujar();
 }

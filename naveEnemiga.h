@@ -1,6 +1,6 @@
 class naveEnemiga{
 	int x,y,v;
-	char dir='r';
+	char dir;
 public:
 	naveEnemiga(int x1,int y1,int v1);
 	int getY(){
@@ -17,7 +17,7 @@ public:
 	void borrar();
 	void mover();
 	void vidas();
-	void muerte();
+	void muerte(int x1,int y1, class Punteo &p);
 };
 
 void naveEnemiga::setV(int v1){
@@ -125,32 +125,49 @@ void naveEnemiga::mover(){
 				}
 			}
 			dibujar();	
-		//	vidas();			
+			vidas();			
 		}	
 }
 
 void naveEnemiga::vidas(){
-	gotoxy(2,2);printf("Vidas :");
-	gotoxy(20,2);printf("             ");
+	gotoxy(143,1);printf("Nave Enemiga :");
+	gotoxy(143,2);printf("Vidas :");
+	gotoxy(151,2);printf("   ");
 	for(int i=0;i<v;i++){
-		gotoxy(10+i,2);printf("%c",3);
+		gotoxy(151+i,2);printf("%c",3);
 	}
 }
 
-void naveEnemiga::muerte(){
-	if(v==0){
-		borrar();
-		gotoxy(x,y);  printf("  **  ");
-		gotoxy(x,y+1);printf(" ****  ");
-		gotoxy(x,y+2);printf("  **   ");
-		Sleep(200);
-		borrar();
-		gotoxy(x,y);  printf(" * ** *  ");
-		gotoxy(x,y+1);printf("  ****  ");
-		gotoxy(x,y+2);printf(" * ** *  ");
-		Sleep(200);
-		borrar();
-		dibujar();
+void naveEnemiga::muerte(int x1,int y1,class Punteo &p){
+	if(v!=0 && y1>=y+3 ){
+		if(y1<=y+3 &&  (x1==x+1 or  x1==x+2 or  x1==x+3 or  x1==x+4 or  x1==x+5 or x1==x+6 or  x1==x+7 or x1==x+8 )) {
+			v--;
+			p.setP(p.getP()+1);
+			borrar();
+			gotoxy(x1,y1-1);printf("     ");
+			gotoxy(x1,y1-2);printf("     ");
+			gotoxy(x1,y1-3);printf("     ");
+			gotoxy(x1,y1-1);printf("  *  ");
+			gotoxy(x1,y1-2);printf(" *** ");
+			gotoxy(x1,y1-3);printf("  *  ");
+			Sleep(20);
+			borrar();
+			gotoxy(x1,y1-1);printf("     ");
+			gotoxy(x1,y1-2);printf("     ");
+			gotoxy(x1,y1-3);printf("     ");			
+			gotoxy(x1,y1-1);printf(" * * ");
+			gotoxy(x1,y1-2);printf("*   *");
+			gotoxy(x1,y1-3);printf(" * * ");
+			Sleep(20);
+			borrar();
+			gotoxy(x1,y1-1);printf("     ");
+			gotoxy(x1,y1-2);printf("     ");
+			gotoxy(x1,y1-3);printf("     ");
+			dibujar();
+			vidas();
+		}		
+	}
+	if(v<=0){
 		v=3;
 	}
 }
@@ -158,4 +175,5 @@ naveEnemiga::naveEnemiga (int x1,int y1,int v1){
 	x=x1;
 	y=y1;
 	v=v1;
+	dir='r';
 }
