@@ -5,6 +5,5 @@ void gotoxy(int x,int y){
 	dwPos.X=x;
 	dwPos.Y=y;
 	SetConsoleCursorPosition(hcon,dwPos);
-
 }
 

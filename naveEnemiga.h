@@ -1,8 +1,8 @@
 class naveEnemiga{
-	int x,y,v;
+	int x,y,v,n;
 	char dir;
 public:
-	naveEnemiga(int x1,int y1,int v1);
+	naveEnemiga(int x1,int y1,int v1,int n1);
 	int getY(){
 		return y;
 	}
@@ -12,13 +12,22 @@ public:
 	int getV(){
 		return v;
 	}
+	int getN(){
+		return n;
+	}
+	void setX(int x1);
 	void setV(int v1);
+	void setN(int n1);
 	void dibujar();
 	void borrar();
 	void mover();
 	void vidas();
 	void muerte(int x1,int y1, class Punteo &p);
 };
+
+void naveEnemiga::setX(int x1){
+	x=x1;
+}
 
 void naveEnemiga::setV(int v1){
 	v=v1;
@@ -114,6 +123,7 @@ void naveEnemiga::mover(){
 				}
 				else{
 					dir='l';
+					PlaySound(TEXT("Sonidos/muevemala.wav"), NULL, SND_FILENAME | SND_ASYNC );				
 				}
 			}
 			if(dir=='l'){
@@ -122,6 +132,7 @@ void naveEnemiga::mover(){
 				}
 				else{
 					dir='r';
+					PlaySound(TEXT("Sonidos/muevemala.wav"), NULL, SND_FILENAME | SND_ASYNC );
 				}
 			}
 			dibujar();	
@@ -130,19 +141,33 @@ void naveEnemiga::mover(){
 }
 
 void naveEnemiga::vidas(){
-	gotoxy(143,1);printf("Nave Enemiga :");
-	gotoxy(143,2);printf("Vidas :");
-	gotoxy(151,2);printf("   ");
+	gotoxy(136,1);printf("Nave Enemiga :");
+	gotoxy(136,2);printf("Vidas :");
+	gotoxy(144,2);printf("          ");
 	for(int i=0;i<v;i++){
-		gotoxy(151+i,2);printf("%c",3);
+		gotoxy(144+i,2);printf("%c",3);
 	}
 }
 
 void naveEnemiga::muerte(int x1,int y1,class Punteo &p){
 	if(v!=0 && y1>=y+3 ){
-		if(y1<=y+3 &&  (x1==x+1 or  x1==x+2 or  x1==x+3 or  x1==x+4 or  x1==x+5 or x1==x+6 or  x1==x+7 or x1==x+8 )) {
-			v--;
-			p.setP(p.getP()+1);
+		if(y1<=y+3 &&  (x1==x or x1==x+1 or  x1==x+2 or  x1==x+3 or  x1==x+4 or  x1==x+5 or x1==x+6 or  x1==x+7 or x1==x+8 )) {
+			v--;	
+			if(n==2){
+				p.setP(p.getP()+2);	
+			}
+			if(n==4){
+				p.setP(p.getP()+4);	
+			}
+			if(n==6){
+				p.setP(p.getP()+6);	
+			}
+			if(n==8){
+				p.setP(p.getP()+8);	
+			}
+			if(n==10){
+				p.setP(p.getP()+10);	
+			}
 			borrar();
 			gotoxy(x1,y1-1);printf("     ");
 			gotoxy(x1,y1-2);printf("     ");
@@ -150,7 +175,7 @@ void naveEnemiga::muerte(int x1,int y1,class Punteo &p){
 			gotoxy(x1,y1-1);printf("  *  ");
 			gotoxy(x1,y1-2);printf(" *** ");
 			gotoxy(x1,y1-3);printf("  *  ");
-			Sleep(20);
+			Sleep(50);
 			borrar();
 			gotoxy(x1,y1-1);printf("     ");
 			gotoxy(x1,y1-2);printf("     ");
@@ -158,7 +183,7 @@ void naveEnemiga::muerte(int x1,int y1,class Punteo &p){
 			gotoxy(x1,y1-1);printf(" * * ");
 			gotoxy(x1,y1-2);printf("*   *");
 			gotoxy(x1,y1-3);printf(" * * ");
-			Sleep(20);
+			Sleep(50);
 			borrar();
 			gotoxy(x1,y1-1);printf("     ");
 			gotoxy(x1,y1-2);printf("     ");
@@ -168,12 +193,13 @@ void naveEnemiga::muerte(int x1,int y1,class Punteo &p){
 		}		
 	}
 	if(v<=0){
-		v=3;
+		PlaySound(TEXT("Sonidos/gano.wav"), NULL, SND_FILENAME | SND_ASYNC );
 	}
 }
-naveEnemiga::naveEnemiga (int x1,int y1,int v1){
+naveEnemiga::naveEnemiga (int x1,int y1,int v1,int n1){
 	x=x1;
 	y=y1;
 	v=v1;
 	dir='r';
+	n=n1;
 }

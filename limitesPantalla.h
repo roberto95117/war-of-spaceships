@@ -1,12 +1,20 @@
 void limites(){
-
+	/*
 	for(int i=2;i<158;i++ ){
 		gotoxy(i,3);printf("%c",205);
 		gotoxy(i,48);printf("%c",205);
-}
+	}	
 	for(int i=4;i<48;i++){
 		gotoxy(2,i);printf("%c",186);
 		gotoxy(157,i);printf("%c",186);
+	}*/
+	for(int i=2;i<158;i++ ){
+		gotoxy(i,3);printf("+");
+		gotoxy(i,48);printf("+");
+	}	
+	for(int i=4;i<48;i++){
+		gotoxy(2,i);printf("+");
+		gotoxy(157,i);printf("+");
 	}
 	gotoxy(2,3);printf("%c",201);
 	gotoxy(2,48);printf("%c",200);

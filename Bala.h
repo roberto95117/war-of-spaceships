@@ -16,6 +16,7 @@ void Bala::mover(class naveEnemiga &n){
 	gotoxy(x,y); printf(" ");
 	y++;
 	if(y>47){
+		PlaySound(TEXT("Sonidos/disparoMalo2.wav"), NULL, SND_FILENAME | SND_ASYNC );
 		x=n.getX()+3;
 		y=7;
 	}
@@ -26,6 +27,8 @@ void Bala::dibujar(){
 	printf("%c",184);
 }
 Bala::Bala(class naveEnemiga &n){
+	PlaySound(TEXT("Sonidos/disparoMalo2.wav"), NULL, SND_FILENAME | SND_ASYNC );
 	x=n.getX()+3;
 	y=5;
+	
 }
